@@ -38,8 +38,11 @@ npm install
 ```
 npm start
 ```
-4. Navigate to http://localhost:PORT in your browser, where PORT is set in the file .env
+4. Navigate to http://localhost:PORT in a **Cisco device browser**, where PORT is set in the file .env
 * If you only have 1 camera and 1 device and want to view this dashboard as though it had more devices, you can navigate to: http://localhost:PORT?debug=true
+* You can set the kiosk URL of a Device, or create a web app on the Cisco device with this url.
+* This is intended to run on a Cisco Device with web engine capabilities.
+* Opening this url in a browser of a laptop or personal machine will attempt to open a SIP application installed on the device, and so it will not work if there is no SIP soft client installed.
 
 
 ## Support
