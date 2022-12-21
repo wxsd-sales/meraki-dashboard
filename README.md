@@ -7,10 +7,10 @@ This is a Web App which compiles Meraki network cameras via RTSP onto a dashboar
 
 ## Overview
 
-This application uses the Meraki API to retrieve a list of Network cameras (this is why you need a Meraki API Key below).
-This application retrieves a list of API accessible Room Devices (this is why you need a Webex Bot token below).
-This application matches the cameras to the room devices based on the tags for the retrieved room devices.
-This application displays the RTSP streams of the meraki cameras on a webpage, and for each camera, provides a button to dial the associated room device.
+* This application uses the Meraki API to retrieve a list of Network cameras (this is why you need a Meraki API Key below).
+* This application retrieves a list of API accessible Room Devices (this is why you need a Webex Bot token below).
+* This application matches the cameras to the room devices based on the tags for the retrieved room devices.
+* This application displays the RTSP streams of the meraki cameras on a webpage, and for each camera, provides a button to dial the associated room device.
 
 Server Requirements:
 1. node version >= 14.5.0
