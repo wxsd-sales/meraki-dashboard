@@ -6,7 +6,7 @@
 This is a Web App which compiles Meraki network cameras via RTSP onto a dashboard/webpage.  Camera names are associated to Rooms Devices on a CH tenant via a "tag" on the room device in CH.
 
 ## Overview
-[![Meraki_Dashboard Video]()](https://app.vidcast.io/share/a9d8ca25-a430-4cbe-a494-52a3d95b5623)
+[![Meraki_Dashboard Video](https://user-images.githubusercontent.com/19175490/208965357-bb3757b5-9ce3-490d-a9be-9905e3bed6fe.png)](https://app.vidcast.io/share/a9d8ca25-a430-4cbe-a494-52a3d95b5623)
 
 * This application uses the Meraki API to retrieve a list of Network cameras (this is why you need a Meraki API Key below).
 * This application retrieves a list of API accessible Room Devices (this is why you need a Webex Bot token below).
