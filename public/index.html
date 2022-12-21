@@ -1,0 +1,92 @@
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+
+        .column.is-centered {
+            display: flex;
+            justify-content: center;
+        }
+
+        .video-container{
+            position: relative;
+        }
+
+        .video-container>.player-buttons{
+            /*height: 128px;*/
+            left: 50%;
+            margin: -24px 0 0 -24px;
+            position: absolute;
+            bottom: 20px;
+            /*width: 128px;*/
+            z-index: 1; 
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f4a0e6453b.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/flv.js/1.4.0/flv.min.js"></script>
+    <div id="header-box" class="columns is-centered is-primary has-background-primary mt-0 mb-0">
+        <div class="column has-text-centered is-centered py-1">
+            <h1 id='main-title' class="title">Dashboard</h1>
+        </div>
+    </div>
+    <div id="main-content" class="columns is-multiline is-centered is-desktop mt-1">
+    </div>
+    <script>
+        const queryString = window.location.search;
+        const urlParams   = new URLSearchParams(queryString);
+        const PATHNAME    = window.location.pathname
+        const DEBUG       = urlParams.get('debug') == "true";
+
+        function createVideoElements(rooms){
+            if (flvjs.isSupported()) {
+                for (let room of rooms){
+                    console.log(room);
+                    let jqueryElement = $(`<div id="${room.camera.cleanName}" class="column is-narrow video-container">`);
+                    let videoElement = $(`<video id="${room.camera.cleanName}_video" class="cctv" width="600"></video>`);
+                    jqueryElement.append(videoElement)
+                    jqueryElement.append($('<div class="player-buttons">').append(
+                        $(`<button class="button is-narrow is-rounded" onclick="window.location.href='sip:${room.device.sip}';">
+                            <span class="icon">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                           </button>`)
+                    ));
+                    $('#main-content').append(jqueryElement);
+                    var flvPlayer = flvjs.createPlayer({
+                        type: 'flv',
+                        url: room.camera.http
+                    });
+                    flvPlayer.attachMediaElement(videoElement[0]);
+                    flvPlayer.load();
+                    flvPlayer.play();
+                }
+            }
+        }
+
+        function getRooms(){
+            $.get('/rooms').done(function (response) {
+                console.log(response);
+                if(DEBUG){
+                    $('#header-box').removeClass("mt-0");
+                    $('#header-box').addClass("mt-6");
+                    let numToAdd = 6-response.length;
+                    for(let i=0;i < numToAdd; i++){
+                        let fakeRoom = JSON.parse(JSON.stringify(response[0]))
+                        fakeRoom.camera.name += `_${i}`;
+                        fakeRoom.camera.cleanName += `_${i}`;
+                        response.push(fakeRoom);
+                    }
+                }
+                createVideoElements(response);
+            });
+        }
+
+        getRooms();
+    </script> 
+</body>
+
+</html>
