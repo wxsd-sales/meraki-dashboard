@@ -3,7 +3,12 @@
 ·
 <a href="https://github.com/WXSD-Sales/meraki-dashboard/issues"><strong>Request Feature</strong></a>
 
+Welcome to our WXSD DEMO Repo! <!-- Keep this here --> 
+
 This is a Web App which compiles Meraki network cameras via RTSP onto a dashboard/webpage.  Camera names are associated to Rooms Devices on a CH tenant via a "tag" on the room device in CH.
+
+<!-- Keep the following here -->  
+ *_Everything included is for demo and Proof of Concept purposes only. Your use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for. These demos are for Cisco Webex usecases, but are not Official Cisco Webex Branded demos._
 
 ## Overview
 [![Meraki_Dashboard Video](https://user-images.githubusercontent.com/19175490/208965357-bb3757b5-9ce3-490d-a9be-9905e3bed6fe.png)](https://app.vidcast.io/share/a9d8ca25-a430-4cbe-a494-52a3d95b5623)
