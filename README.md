@@ -3,12 +3,8 @@
 ·
 <a href="https://github.com/WXSD-Sales/meraki-dashboard/issues"><strong>Request Feature</strong></a>
 
-Welcome to our WXSD DEMO Repo! <!-- Keep this here --> 
-
 This is a Web App which compiles Meraki network cameras via RTSP onto a dashboard/webpage.  Camera names are associated to Rooms Devices on a CH tenant via a "tag" on the room device in CH.
 
-<!-- Keep the following here -->  
- *_Everything included is for demo and Proof of Concept purposes only. Your use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for. These demos are for Cisco Webex usecases, but are not Official Cisco Webex Branded demos._
 
 ## Overview
 [![Meraki_Dashboard Video](https://user-images.githubusercontent.com/19175490/208965357-bb3757b5-9ce3-490d-a9be-9905e3bed6fe.png)](https://app.vidcast.io/share/a9d8ca25-a430-4cbe-a494-52a3d95b5623)
@@ -18,19 +14,21 @@ This is a Web App which compiles Meraki network cameras via RTSP onto a dashboar
 * This application matches the cameras to the room devices based on the tags for the retrieved room devices.
 * This application displays the RTSP streams of the meraki cameras on a webpage, and for each camera, provides a button to dial the associated room device.
 
-Server Requirements:
-1. node version >= 14.5.0
-
 
 ## Setup
 
+### Prerequisites & Dependencies: 
+__Server:__  
+1. node version >= 14.5.0  
+
+__Devices:__  
 1. You will need at least one local meraki camera.  The meraki cameras will need to have RTSP enabled, which can be done in the Meraki Dashboard.
 2. You will need access to a Device in shared/room mode, like a Deskpro, Roomkit, DX80, etc.
   a. You will need to create a bot, and get the bot's token (developer.webex.com).
   b. The bot will need to be given API access to each room device you want to use for this demo.
   c. Each room device will need to have the name of the associated Meraki camera(s) added as a tag in CH.
 
-### Server Side Setup
+### Server Installation:
 1. Clone this repository
 2. Rename ```sample.env``` to ```.env```, and edit the values in .env
 * You will need a Bot token (developer.webex.com) and a Meraki API key (dashboard.meraki.com)
@@ -50,7 +48,14 @@ npm start
 * This is intended to run on a Cisco Device with web engine capabilities.
 * Opening this url in a browser of a laptop or personal machine will attempt to open a SIP application installed on the device, and so it will not work if there is no SIP soft client installed.
 
+## License
+All contents are licensed under the MIT license. Please see [license](LICENSE) for details.
 
+
+## Disclaimer
+<!-- Keep the following here -->  
+ Everything included is for demo and Proof of Concept purposes only. Use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for. These demos are for Cisco Webex usecases, but are not Official Cisco Webex Branded demos.
+ 
 ## Support
 
 Please reach out to the WXSD team at [wxsd@external.cisco.com](mailto:wxsd@external.cisco.com?cc=<your_cec>@cisco.com&subject=RepoName).
